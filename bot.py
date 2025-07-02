@@ -43,7 +43,9 @@ async def control_led(interaction: discord.Interaction, accion: app_commands.Cho
 @bot.event
 async def on_ready():
     print(f'✅ Bot listo como {bot.user}')
-    await bot.tree.sync(guild=GUILD_ID)
+    # await bot.tree.sync(guild=GUILD_ID) # Comenta esta línea
+    await bot.tree.sync() # <<-- Añade esta línea para sincronizar globalmente
+    print('Comandos globales sincronizados (puede tardar en aparecer).')
 
 # Ejecucion
 if __name__ == "__main__":
